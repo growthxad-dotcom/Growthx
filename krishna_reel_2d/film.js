@@ -504,8 +504,9 @@
         const p = ease.inOutCubic(P(t, ev.logo, ev.logo + 0.9));
         ctx.save(); ctx.beginPath(); ctx.arc(CX, 930, p * 1450, 0, TAU); ctx.clip(); sceneEnd(ctx, t); ctx.restore();
         if (p < 1) { ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.strokeStyle = `rgba(255,214,110,${1 - p})`; ctx.lineWidth = 40 * (1 - p) + 8; ctx.shadowColor = 'rgba(255,190,70,1)'; ctx.shadowBlur = 60; ctx.beginPath(); ctx.arc(CX, 930, p * 1450, 0, TAU); ctx.stroke(); ctx.restore(); }
-        if (t < ev.logo + 0.3) { ctx.fillStyle = `rgba(255,248,220,${0.55 * Math.exp(-(t - ev.logo) * 14)})`; ctx.fillRect(0, 0, W, H); }
+        if (t < ev.logo + 0.4) { ctx.fillStyle = `rgba(255,248,220,${0.95 * Math.exp(-(t - ev.logo) * 9)})`; ctx.fillRect(0, 0, W, H); }
       }
+      if (t >= ev.swirl && t < ev.swirl + 0.4) { ctx.fillStyle = `rgba(255,244,210,${0.9 * Math.exp(-(t - ev.swirl) * 9)})`; ctx.fillRect(0, 0, W, H); }
       // keep the bowls travelling to the corners visible through the iris: draw them again above scene 3 during the reveal
     },
     post: { paper: 0, vignette: 0.12, grain: 0.03 },
